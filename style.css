@@ -1,0 +1,49 @@
+body {
+    background-color: beige;
+}
+
+.mainDiv {
+    margin: 0 auto;
+    width: 900px;
+    height: 900px;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: brown;
+}
+
+.imageDiv {
+    display: inline-block;
+    width: 500px;
+    background-color: grey;
+}
+
+div.imageDiv>img {
+    width: 80%;
+    display: inline-block;
+}
+
+.titleDiv {
+    float: right;
+    display: inline;
+    vertical-align: top;
+}
+
+.testDiv {
+    display: inline-block;
+}
+
+.maxLetters {
+    margin-top: 20px;
+    padding: 15px;
+    background: lightblue;
+}
+
+.won {
+    color: green;
+    font-size: 25px;
+}
+
+.lost {
+    color: red;
+    font-size: 25px;
+}
