@@ -1,0 +1,3 @@
+usr,win,loss,password
+Aaron,1,2,shabooboo
+Belogus,4,2,skoopz

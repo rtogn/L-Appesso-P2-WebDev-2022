@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 $letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
@@ -147,9 +145,11 @@ if (isset($_GET['keypressed'])) {
         if (!isBodyComplete()) {
             addPart();
             if (isBodyComplete()) {
+				++$_SESSION['loss'];
                 markGameAsComplete();
             }
         } else {
+			++$_SESSION['loss'];
             markGameAsComplete();
         }
     }

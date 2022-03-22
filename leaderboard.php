@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("save_usr.php")
 ?>
 
 <html>
@@ -8,27 +9,13 @@ session_start();
     <title>Leaderboard</title>
     <link type="text/css" rel="stylesheet" href="leaderboard.css" />
 </head>
-
 <body>
-    <table>
-        <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th># of Wins</th>
-        </tr>
-
-        <tr>
-            <td>1</td>
-            <td><?php echo $_SESSION["use"]; ?></td>
-            <td><?php echo $_SESSION["wincount"]; ?></td>
-        </tr>
-
-
-
-
-
-
-    </table>
+    <?php
+		displayLeaderboard($_SESSION['board']);
+		// save user scores to the persistant text file!
+		saveUserScores($_SESSION['board'], $scoreFile);
+		var_dump(getLeaderboard($scoreFile));
+	?>
 
     <br><br>
 
@@ -38,6 +25,7 @@ session_start();
 
     <?php
     if (isset($_POST['login'])) {
+		
         session_destroy();
         header("Location:login.php");
     }

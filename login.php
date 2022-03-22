@@ -1,22 +1,25 @@
 <?php
+include("save_usr.php");
 //start session
 session_start();
 
-
-
-
-if (isset($_POST['login']))   // it checks whether the user clicked login button or not 
-{
+if (isset($_POST['login']) && strlen($_POST['login']) > 0)   // it checks whether the user clicked login button or not 
+{	
+	$board = getLeaderboard($scoreFile);
     $user = $_POST['user'];
-    $pass = $_POST['pass'];
-
-
+    $pass = "none"; //$_POST['pass'];
+	addUser($user, $pass, $board);
     $_SESSION['use'] = $user;
+	$_SESSION['wincount'] = (int)$board[$user]['win'];
+	$_SESSION['loss'] = (int)$board[$user]['loss'];
+	$_SESSION['board'] = $board;
 }
+
 
 if (isset($_SESSION['use'])) {
     header("Location:game.php");
 }
+
 ?>
 
 <html>
