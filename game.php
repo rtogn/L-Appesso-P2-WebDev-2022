@@ -4,30 +4,27 @@ session_start();
 
 $letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-//testing
-$guess = "HANGMAN";
-$maxLetters = strlen($guess) - 1;
-$responses = ["H", "G", "A"];
-
 
 
 $bodyImages = ["blank", "head", "body", "leftarm", "rightarm", "leftleg", "rightleg"];
 
 $words = ["JAVASCRIPT", "HTML", "PROGRAMMING", "ARRAY"];
 
+
+if (!isset($_SESSION['wincount'])) {
+    $_SESSION['wincount'] = 0;
+}
+
 function getCurrentImage($part)
 {
     return "./imgs/" . $part . ".png";
 }
 
-function startGame()
-{
-}
 
 function restartGame()
 {
-    session_destroy();
-    session_start();
+
+    header("Location:leaderboard.php");
 }
 
 function getParts()
@@ -129,19 +126,24 @@ if (isset($_GET['start'])) {
     restartGame();
 }
 
-//keypress
+//Logic for guessing letters
+
 if (isset($_GET['keypressed'])) {
     $currentPressedKey = isset($_GET['keypressed']) ? $_GET['keypressed'] : null;
 
+    //if the letter pressed is correct and the body is not complete and the game is not complete
     if ($currentPressedKey && isLetterCorrect($currentPressedKey) && !isBodyComplete() && !gameComplete()) {
 
+        //if the word ends up being correct after adding letter change game state to complete, and set won to true
         addResponse($currentPressedKey);
         if (isWordCorrect()) {
             $WON = true;
+            ++$_SESSION['wincount'];
             markGameAsComplete();
         }
     } else {
 
+        //if body is not complete and guess is wrong add a part to the body
         if (!isBodyComplete()) {
             addPart();
             if (isBodyComplete()) {
@@ -186,6 +188,7 @@ if (isset($_GET['keypressed'])) {
 
         <div class="titleDiv">
             <h1>PHP Hangman</h1>
+            <h2>User: <?php echo $_SESSION['use']; ?></h2>
             <div class="testDiv">
                 <form method="get">
                     <?php
