@@ -4,20 +4,25 @@ include("save_usr.php");
 session_start();
 
 if (isset($_POST['login']) && strlen($_POST['login']) > 0)   // it checks whether the user clicked login button or not 
-{	
-	$board = getLeaderboard($scoreFile);
+{
+    $board = getLeaderboard($scoreFile);
     $user = $_POST['user'];
     $pass = "none"; //$_POST['pass'];
-	addUser($user, $pass, $board);
+    addUser($user, $pass, $board);
     $_SESSION['use'] = $user;
-	//$_SESSION['wincount'] = (int)($board[$user]['win']);
-	//$_SESSION['loss'] = (int)($board[$user]['loss']);
-	$_SESSION['board'] = $board;
+    //$_SESSION['wincount'] = (int)($board[$user]['win']);
+    //$_SESSION['loss'] = (int)($board[$user]['loss']);
+    $_SESSION['board'] = $board;
 }
 
 
 if (isset($_SESSION['use'])) {
-    header("Location:game.php");
+
+    if (empty($_SESSION['use'])) {
+        echo "<h2 class='error'> No Username! </h2>";
+    } else {
+        header("Location:game.php");
+    }
 }
 
 ?>
@@ -33,24 +38,24 @@ if (isset($_SESSION['use'])) {
 
 <body>
     <div class="center">
-    	<h1 class="beep">「L'Appesso - The Hanged Man」</h1>
-	<h3>Log in with your credentials or create a new user for the score board</h3>
-	<form action="" method="post">
-        <table width="200" border="0">
-            <tr>
-                <td> UserName</td>
-                <td> <input type="text" name="user"> </td>
- 	   </tr>
-	    <tr>
-        	<td>Password</td>   
-		<td><input type="text" name="pass"></td>
-            </tr>
-            <tr>
-                <td> <input type="submit" name="login" value="LOGIN"></td>
-            </tr>
-        </table>
+        <h1 class="beep">「L'Appesso - The Hanged Man」</h1>
+        <h3>Log in with your credentials or create a new user for the score board</h3>
+        <form action="" method="post">
+            <table width="200" border="0">
+                <tr>
+                    <td> UserName</td>
+                    <td> <input type="text" name="user"> </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="text" name="pass"></td>
+                </tr>
+                <tr>
+                    <td> <input type="submit" name="login" value="LOGIN"></td>
+                </tr>
+            </table>
 
-    	</form>
+        </form>
     </div>
 </body>
 

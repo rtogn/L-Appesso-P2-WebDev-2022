@@ -11,12 +11,12 @@
 	color: DarkGoldenrod;
 }
 
-.center input[type=text]  {
+.center input[type=text] {
 	position: relative;
-	
+
 }
 
-.center input[type=submit]  {
+.center input[type=submit] {
 	color: white;
 	font-weight: bold;
 	position: relative;
@@ -25,3 +25,7 @@
 	border: 2px solid DarkGoldenrod;
 }
 
+.error {
+	text-align: center;
+	color: red;
+}
