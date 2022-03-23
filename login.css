@@ -1,3 +1,10 @@
+body {
+	background-image:url("imgs/theman/0.png");
+	background-repeat: no-repeat;
+	background-position: 50% 25%;
+	background-size: 90%;
+}
+
 .center {
 	text-align: center;
 	width: 75%;
