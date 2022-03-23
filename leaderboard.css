@@ -1,0 +1,12 @@
+table.leaderboard {
+  border: 6px solid DarkGoldenrod;
+  background-color: #FFE3C6;
+  width: 100%;
+  text-align: center;
+}
+table.leaderboard td, table.leaderboard th {
+  border: 1px solid DarkGoldenrod;
+  padding: 4px 4px;
+}
+
+

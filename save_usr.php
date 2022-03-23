@@ -28,7 +28,7 @@
 		//$leaderBoard = getLeaderboard($leaderboardFile);
 		$scores = array_column($leaderBoard, "win");
 		$rank = 1;
-		echo "<table>
+		echo "<table class=\"leaderboard\">
 			<tr>
 				<th>Rank</th>
 				<th>Name</th>
