@@ -1,0 +1,65 @@
+body {
+    background-color: beige;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.mainDiv {
+    margin: 0 auto;
+    width: 900px;
+    height: 900px;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: burlywood;
+}
+
+.imageDiv {
+    display: inline-block;
+    width: 900px;
+    background-color: grey;
+}
+
+div.imageDiv>img {
+    width: 100%;
+    display: inline-block;
+}
+
+.titleDiv {
+    display: inline;
+    vertical-align: top;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+
+.keyboardDiv {
+    text-align: center;
+}
+
+button {
+    font-size: 32px;
+    padding: 2px 5px;
+    margin-right: 2;
+    margin-bottom: 2;
+}
+
+.maxLetters {
+    margin-top: 40px;
+    padding: 15px;
+    background: lightgoldenrodyellow;
+}
+
+.won {
+    color: green;
+    font-size: 25px;
+}
+
+.lost {
+    color: red;
+    font-size: 25px;
+}
+
+.guessedWord {
+    font-size: 35px;
+    border-bottom: 3px solid #000;
+    margin-right: 5px;
+}
