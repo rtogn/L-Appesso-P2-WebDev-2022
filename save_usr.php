@@ -7,6 +7,7 @@
 	
 	
 	function getLeaderboard($leaderboardFile) {
+		// Returns array containing leaderboard of users from txt repository
 		$file = fopen($leaderboardFile, 'r');
 		$leaderBoard = array();
 		while(!feof($file)) {
@@ -20,6 +21,10 @@
 	}
 	
 	function displayLeaderboard($leaderBoard) {
+		// Displays table containing leader board scores etc.
+		// List will be sorted by highest number of wins. 
+		// Pass leaderboard array as argument. 
+		
 		//$leaderBoard = getLeaderboard($leaderboardFile);
 		$scores = array_column($leaderBoard, "win");
 		$rank = 1;
@@ -48,15 +53,8 @@
 		echo "</table>";	
 	}
 	
-	function validateUser($userName, $leaderboard) {
-		if(isset($leaderboard[$userName])) {
-			return "true";
-		}
-		return "false";
-	}
-	
 	function addUser($userName, $password, &$leaderboard) {
-		// If user is not already on the board add. Then return the user's info. 
+		// If user is not already on the board add, otherwise no action needed. 
 		if (!isset($leaderboard[$userName])) {
 			$leaderboard[$userName] = array("win" => 0, "loss" => 0, "password" => $password, "name"=> $userName);
 		}
@@ -64,30 +62,39 @@
 	}
 	
 	function saveUserScores($leaderboard, $leaderboardFile) {
+		// Saves current session data to the text file repository.
+		// Allows for scores to persist between sessions among users. 
+		// Bug: A line break is some times added under items creating empty lines
+		// This had to be accounted for when parsing. Rmoving /n causes it to place
+		// Everything on one line.
+		
+		
 		//var_dump($leaderboard);
 		$info = "usr,win,loss,password";
 		foreach ($leaderboard as $user) {
 			$userInfo = "\n".$user['name'].",".$user['win'].",".$user['loss'].",".$user['password'];
 			$info .= $userInfo;			
 		}
-		//echo "helloooo  ".$info;
+		
 		$file = fopen($leaderboardFile, 'w');
 		fwrite($file, $info);
 		fclose($file);
 	}		
 	
 	function updateUserWin($userName, &$leaderboard) {
+		// Incremets users win count.
 		$value = (int)($leaderboard[$userName]['win']);
 		$leaderboard[$userName]['win'] = (string)(++$value);
 
 	}
 	
 	function updateUserLoss($userName, &$leaderboard) {
+		// Incremets users win count. 
 		$value = (int)($leaderboard[$userName]['loss']);
-		$leaderboard[$userName]['loss'] = (string)($value++);
+		$leaderboard[$userName]['loss'] = (string)(++$value);
 	}
 
-	//Global for convenience. 
+	//Global reference to text data repo for convenience. 
 	$scoreFile = "usrs.txt";
 
 	/*testing html

@@ -1,11 +1,11 @@
 <?php
+include("save_usr.php");
 session_start();
 $letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
 
 $bodyImages = ["blank", "head", "body", "leftarm", "rightarm", "leftleg", "rightleg"];
-
 $words = ["JAVASCRIPT", "HTML", "PROGRAMMING", "ARRAY"];
 
 
@@ -136,7 +136,8 @@ if (isset($_GET['keypressed'])) {
         addResponse($currentPressedKey);
         if (isWordCorrect()) {
             $WON = true;
-            ++$_SESSION['wincount'];
+            //++$_SESSION['wincount'];
+			updateUserWin($_SESSION['use'], $_SESSION['board']);
             markGameAsComplete();
         }
     } else {
@@ -144,14 +145,22 @@ if (isset($_GET['keypressed'])) {
         //if body is not complete and guess is wrong add a part to the body
         if (!isBodyComplete()) {
             addPart();
+			
             if (isBodyComplete()) {
-				++$_SESSION['loss'];
+				//++$_SESSION['loss'];
+				updateUserLoss($_SESSION['use'], $_SESSION['board']);
                 markGameAsComplete();
             }
-        } else {
-			++$_SESSION['loss'];
+			
+        } 
+		
+		/*
+		else {
+			//++$_SESSION['loss'];
+			updateUserLoss($_SESSION['use'], $_SESSION['board']);
             markGameAsComplete();
         }
+		*/
     }
 }
 

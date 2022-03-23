@@ -10,8 +10,8 @@ if (isset($_POST['login']) && strlen($_POST['login']) > 0)   // it checks whethe
     $pass = "none"; //$_POST['pass'];
 	addUser($user, $pass, $board);
     $_SESSION['use'] = $user;
-	$_SESSION['wincount'] = (int)$board[$user]['win'];
-	$_SESSION['loss'] = (int)$board[$user]['loss'];
+	//$_SESSION['wincount'] = (int)($board[$user]['win']);
+	//$_SESSION['loss'] = (int)($board[$user]['loss']);
 	$_SESSION['board'] = $board;
 }
 
