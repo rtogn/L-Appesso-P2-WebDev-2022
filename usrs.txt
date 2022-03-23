@@ -1,3 +1,5 @@
 usr,win,loss,password
 Aaron,1,2,shabooboo
-Belogus,4,2,skoopz
+
+Belogus,4,4,skoopz
+sdfsd,0,1,none

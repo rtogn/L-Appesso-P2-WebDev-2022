@@ -17,6 +17,7 @@ body {
     background-color: grey;
 }
 
+
 div.imageDiv>img {
     width: 80%;
     display: inline-block;
@@ -47,3 +48,6 @@ div.imageDiv>img {
     color: red;
     font-size: 25px;
 }
+
+
+

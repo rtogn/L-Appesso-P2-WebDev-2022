@@ -1,0 +1,27 @@
+.center {
+	text-align: center;
+	width: 75%;
+	margin: auto;
+	color: DarkGoldenrod;
+}
+
+.center table {
+	margin: 0 auto;
+	border: 5px solid Goldenrod;
+	color: DarkGoldenrod;
+}
+
+.center input[type=text]  {
+	position: relative;
+	
+}
+
+.center input[type=submit]  {
+	color: white;
+	font-weight: bold;
+	position: relative;
+	left: 150%;
+	background-color: BurlyWood;
+	border: 2px solid DarkGoldenrod;
+}
+

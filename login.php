@@ -27,27 +27,31 @@ if (isset($_SESSION['use'])) {
 <head>
 
     <title> Login Page </title>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 
 <body>
-
-    <h1>Sign in!</h1>
-
-    <form action="" method="post">
-
+    <div class="center">
+    	<h1 class="beep">「L'Appesso - The Hanged Man」</h1>
+	<h3>Log in with your credentials or create a new user for the score board</h3>
+	<form action="" method="post">
         <table width="200" border="0">
             <tr>
                 <td> UserName</td>
                 <td> <input type="text" name="user"> </td>
+ 	   </tr>
+	    <tr>
+        	<td>Password</td>   
+		<td><input type="text" name="pass"></td>
             </tr>
             <tr>
                 <td> <input type="submit" name="login" value="LOGIN"></td>
-                <td></td>
             </tr>
         </table>
-    </form>
 
+    	</form>
+    </div>
 </body>
 
 </html>
