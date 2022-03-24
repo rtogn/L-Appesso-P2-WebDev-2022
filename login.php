@@ -26,7 +26,7 @@ if (isset($_SESSION['use'])) {
 }
 
 ?>
-
+<!DOCTYPE html>
 <html>
 
 	<head>
