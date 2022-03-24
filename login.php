@@ -29,34 +29,34 @@ if (isset($_SESSION['use'])) {
 
 <html>
 
-<head>
+	<head>
 
-    <title> Login Page </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="login.css">
-</head>
+		<title> Login Page </title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/login.css">
+	</head>
 
-<body>
-    <div class="center">
-        <h1 class="beep">「L'Appesso - The Hanged Man」</h1>
-        <h3>Log in with your credentials or create a new user for the score board</h3>
-        <form action="" method="post">
-            <table width="200" border="0">
-                <tr>
-                    <td> UserName</td>
-                    <td> <input type="text" name="user"> </td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input type="text" name="pass"></td>
-                </tr>
-                <tr>
-                    <td> <input type="submit" name="login" value="LOGIN"></td>
-                </tr>
-            </table>
+	<body>
+		<div class="center">
+			<h1 class="beep">「L'Appesso - The Hanged Man」</h1>
+			<h3>Log in with your credentials or create a new user for the score board</h3>
+			<form action="" method="post">
+				<table width="200" border="0">
+					<tr>
+						<td> UserName</td>
+						<td> <input type="text" name="user"> </td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td><input type="text" name="pass"></td>
+					</tr>
+					<tr>
+						<td> <input type="submit" name="login" value="LOGIN"></td>
+					</tr>
+				</table>
 
-        </form>
-    </div>
-</body>
+			</form>
+		</div>
+	</body>
 
 </html>

@@ -5,9 +5,9 @@ $letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
 
-$bodyImages = ["blank", "head", "body", "leftarm", "rightarm", "leftleg", "rightleg"];
+$bodyImages = ["0", "1", "2", "3", "4", "5", "6"];
 $words = ["JAVASCRIPT", "HTML", "PROGRAMMING", "ARRAY"];
-
+ 
 
 if (!isset($_SESSION['wincount'])) {
     $_SESSION['wincount'] = 0;
@@ -121,6 +121,8 @@ function markGameAsNew()
 
 // check if game restarted
 if (isset($_GET['start'])) {
+	$cards = ["judgement", "magician", "sun", "temperance", "zawarudo", "moon", "tower", "love"];
+	$_SESSION["fortune"] = $cards[array_rand($cards)];
     restartGame();
 }
 
@@ -136,7 +138,7 @@ if (isset($_GET['keypressed'])) {
         addResponse($currentPressedKey);
         if (isWordCorrect()) {
             $WON = true;
-            //++$_SESSION['wincount'];
+            $_SESSION['won'] = $WON;
 			updateUserWin($_SESSION['use'], $_SESSION['board']);
             markGameAsComplete();
         }
@@ -148,6 +150,7 @@ if (isset($_GET['keypressed'])) {
 			
             if (isBodyComplete()) {
 				//++$_SESSION['loss'];
+				$_SESSION['won'] = $WON;
 				updateUserLoss($_SESSION['use'], $_SESSION['board']);
                 markGameAsComplete();
             }
@@ -171,7 +174,8 @@ if (isset($_GET['keypressed'])) {
 <head>
     <meta charset="UTF-8">
     <title>Hangman</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/game.css">
 </head>
 
 <body>
@@ -179,7 +183,7 @@ if (isset($_GET['keypressed'])) {
     <div class="mainDiv">
 
         <div class="imageDiv">
-            <img src="<?php echo getCurrentImage(CurrentPart()); ?>" />
+            <img src="<?php echo getCurrentImage(CurrentPart()); ?>" class="daman" />
 
             <?php if (gameComplete()) : ?>
                 <h1>Game Complete!</h1>
@@ -190,9 +194,6 @@ if (isset($_GET['keypressed'])) {
             <?php elseif (!$WON  && gameComplete()) : ?>
                 <p class="lost">You Lost!</p>
             <?php endif; ?>
-
-
-
         </div>
 
         <div class="titleDiv">
@@ -214,11 +215,11 @@ if (isset($_GET['keypressed'])) {
 
                     <br><br>
 
-                    <button type="Submit" name="start">Restart Game </button>
+                    <button type="Submit" name="start">End Game</button>
                 </form>
             </div>
         </div>
-
+		<br>
         <div class="maxLetters">
             <?php
             $guess = getWord();

@@ -14,8 +14,8 @@ body {
 
 .imageDiv {
     display: inline-block;
-    width: 900px;
-    background-color: grey;
+    width: 600px;
+    background-color: #FFFEF9;
 }
 
 div.imageDiv>img {
@@ -49,11 +49,17 @@ button {
 }
 
 .won {
+	position: relative;
+	right: 66%;
+	float: right;
     color: green;
     font-size: 25px;
 }
 
 .lost {
+	position: relative;
+	right: 15%;
+	float:right;
     color: red;
     font-size: 25px;
 }
@@ -62,4 +68,11 @@ button {
     font-size: 35px;
     border-bottom: 3px solid #000;
     margin-right: 5px;
+}
+
+.daman {
+	float: left;
+	height: auto;
+	max-width: 50%;
+	margin: center;
 }

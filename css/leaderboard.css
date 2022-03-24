@@ -1,0 +1,36 @@
+table.leaderboard {
+  border: 6px solid DarkGoldenrod;
+  background-color: #FFE3C6;
+  width: 100%;
+  text-align: center;
+}
+table.leaderboard td, table.leaderboard th {
+  border: 1px solid DarkGoldenrod;
+  padding: 4px 4px;
+}
+
+
+.buttons input {
+	color: white;
+	font-weight: bold;
+	position: relative;
+	background-color: BurlyWood;
+	border: 2px solid DarkGoldenrod;
+}
+
+.tarot h3{
+	text-align:center;
+	color: white;
+	font-weight: bold;
+	position: relative;
+	background-color: DarkGoldenrod;
+}
+
+.fortune {
+	border: 4px solid DarkGoldenrod;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	max-width: 15%;
+}
