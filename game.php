@@ -7,7 +7,7 @@ $letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 $bodyImages = ["0", "1", "2", "3", "4", "5", "6"];
 $words = ["JAVASCRIPT", "HTML", "PROGRAMMING", "ARRAY"];
- 
+$hints = ["Thinks === is cool", "Mark me up, baby!", "Mostly debugging", "Where this text is pulled from"];
 
 if (!isset($_SESSION['wincount'])) {
     $_SESSION['wincount'] = 0;
@@ -52,6 +52,7 @@ function getWord()
     if (!isset($_SESSION["word"]) && empty($_SESSION["word"])) {
         $key = array_rand($words);
         $_SESSION["word"] = $words[$key];
+		$_SESSION["key"] = $key;
     }
     return $_SESSION["word"];
 }
@@ -168,7 +169,7 @@ if (isset($_GET['keypressed'])) {
 }
 
 ?>
-<!DOCTYPE html>
+
 <html>
 
 <head>
@@ -235,7 +236,14 @@ if (isset($_GET['keypressed'])) {
 
             <?php endfor; ?>
         </div>
-
+		
+		<div class="hint"> 
+			<p>
+			<?php
+				echo "HINT: ".$hints[$_SESSION["key"]];
+			?>
+			</p>
+		</div>
     </div>
 
 
