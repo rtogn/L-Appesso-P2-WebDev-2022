@@ -2,7 +2,7 @@
 	session_start();
 	include("save_usr.php")
 ?>
-
+<!DOCTYPE html>
     <html>
 
     <head>
