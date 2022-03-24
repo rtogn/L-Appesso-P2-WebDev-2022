@@ -52,16 +52,16 @@ button {
 	position: relative;
 	right: 66%;
 	float: right;
-    color: green;
-    font-size: 25px;
+	color: green;
+	font-size: 25px;
 }
 
 .lost {
 	position: relative;
 	right: 15%;
 	float:right;
-    color: red;
-    font-size: 25px;
+	color: red;
+	font-size: 25px;
 }
 
 .guessedWord {
