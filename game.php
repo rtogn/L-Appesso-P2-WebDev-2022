@@ -168,7 +168,7 @@ if (isset($_GET['keypressed'])) {
 }
 
 ?>
-
+<!DOCTYPE html>
 <html>
 
 <head>
