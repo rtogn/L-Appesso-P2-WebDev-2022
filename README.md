@@ -2,8 +2,9 @@
 
 # 「L'Appesso - The Hanged Man」, Project #2 Web Development @ GSU Spring 2022 
 
-This project was implemented based on requirements provided by the professor at GSU in 2022. The goal was to create an interactive game using PHP, CSS and HTML.
-The site uses a basic text file as a 'database' to keep track of users, passwords and win/losses. 
+This project was implemented based on requirements provided by the professor at GSU in 2022. The goal was to create an interactive game using PHP, CSS and HTML.  
+The primary goal was to gain experience with PHP and general website construction.   
+The site uses a basic text file as a 'database' to keep track of users, passwords and win/losses.  
 This file is parsed when the user logs in and when the leaderboard is accessed, it is not intended as a secure or efficient database schema. 
 
 # Languages Used
