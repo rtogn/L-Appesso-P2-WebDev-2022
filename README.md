@@ -1,5 +1,3 @@
-# L-Appesso-P2-Web_Dev-Spring-2022
-
 # 「L'Appesso - The Hanged Man」, Project #2 Web Development @ GSU Spring 2022 
 
 This project was implemented based on requirements provided by the professor at GSU in 2022. The goal was to create an interactive game using PHP, CSS and HTML.  
